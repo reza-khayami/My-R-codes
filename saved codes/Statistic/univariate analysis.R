@@ -1,0 +1,23 @@
+###Univariate analysis
+rm(list = ls())
+require(car)
+data("Prestige")
+head(Prestige)
+mean(Prestige$income, na.rm = T)
+median(Prestige$income, na.rm = T)
+sd(Prestige$income, na.rm = T)
+var(Prestige$income, na.rm = T)
+quantile(Prestige$income, probes = c(0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99), na.rm = T)
+summary(Prestige)
+require(Hmisc)
+describe(Prestige)
+install.packages("pastecs")
+pastecs::stat.desc(Prestige)
+#challange
+require(MASS)
+data("Cars93")
+pastecs::stat.desc(Cars93$Price)
+describe(Cars93)
+#OR
+sd(Cars93$Price)/mean(Cars93$Price)
+quantile(Cars93$Price, probs = 0.95)
